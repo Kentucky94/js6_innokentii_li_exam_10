@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
-import {fetchNews} from "../../store/actions";
+import moment from 'moment';
 import {connect} from "react-redux";
-import NewsBlock from "../../components/NewsBlock/NewsBlock";
 import {Link} from "react-router-dom";
+
+import NewsBlock from "../../components/NewsBlock/NewsBlock";
+import {fetchNews} from "../../store/actions";
+
+import './NewsPage.css';
 
 class NewsPage extends Component {
   componentDidMount() {
     this.props.fetchNews();
+
+    setInterval(() => {
+      this.props.fetchNews();
+    }, 2000)
   }
 
   render() {
@@ -16,7 +24,7 @@ class NewsPage extends Component {
         id={single.id}
         image={single.news_image}
         title={single.news_title}
-        date={single.news_date}
+        date={moment(single.news_date).format('MMMM Do YYYY, h:mm:ss a')}
       />
     ));
 

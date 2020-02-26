@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {postNews} from "../../store/actions";
 import {connect} from "react-redux";
 
+import './AddNewsPage.css';
+
 class AddNewsPage extends Component {
   state = {
     news_title: '',
@@ -21,7 +23,7 @@ class AddNewsPage extends Component {
     })
   };
 
-  onSubmitHandler = event => {
+  onSubmitHandler = async event => {
     event.preventDefault();
 
     const formData = new FormData();
@@ -30,7 +32,7 @@ class AddNewsPage extends Component {
       formData.append(key, this.state[key]);
     });
 
-    this.props.postNews(formData);
+    await this.props.postNews(formData);
 
     this.props.history.push('/');
   };
@@ -39,9 +41,12 @@ class AddNewsPage extends Component {
     return (
       <>
         <h3>Add new post</h3>
-        <form onSubmit={this.onSubmitHandler}>
+        <form onSubmit={this.onSubmitHandler} className='newsForm'>
+          <h4>Title</h4>
           <input name="news_title" type="text" onChange={this.inputChangeHandler}/>
+          <h4>Type here</h4>
           <textarea name="news_content" onChange={this.inputChangeHandler}/>
+          <h4>Image</h4>
           <input name="news_image" type="file" onChange={this.fileChangeHandler}/>
           <button>Post news</button>
         </form>
