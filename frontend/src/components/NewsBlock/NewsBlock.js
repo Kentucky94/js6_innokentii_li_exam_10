@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 import './NewsBlock.css';
 import {deleteNews} from "../../store/actions";
+import {Link} from "react-router-dom";
 
 
 const NewsBlock = props => {
@@ -12,6 +13,7 @@ const NewsBlock = props => {
       <h3>{props.title}</h3>
       <p>{props.date}</p>
       <button onClick={() => props.deleteNews(props.id)}>Delete</button>
+      <Link to={'/news/' + props.id}>View full post</Link>
     </div>
   );
 };
