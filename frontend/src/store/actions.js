@@ -32,18 +32,6 @@ export const fetchSingleNews = id => {
   }
 };
 
-export const fetchNewsComments = id => {
-  return async dispatch => {
-    try{
-      const response = await axiosOrders.get(`/comments/${id}`);
-
-      dispatch(fetchNewsCommentsSuccess(response.data))
-    }catch(e){
-      console.log(e);
-    }
-  }
-};
-
 export const postNews = newsData => {
   return async dispatch => {
     try{
@@ -58,6 +46,38 @@ export const deleteNews = id => {
   return async dispatch => {
     try{
       await axiosOrders.delete(`/news/${id}`)
+    }catch(e){
+      console.log(e);
+    }
+  }
+};
+
+export const fetchNewsComments = id => {
+  return async dispatch => {
+    try{
+      const response = await axiosOrders.get(`/comments/${id}`);
+
+      dispatch(fetchNewsCommentsSuccess(response.data))
+    }catch(e){
+      console.log(e);
+    }
+  }
+};
+
+export const postNewsComment = commentData => {
+  return async dispatch => {
+    try{
+      await axiosOrders.post(`/comments`, commentData);
+    }catch(e){
+      console.log(e);
+    }
+  }
+};
+
+export const deleteNewsComment = id => {
+  return async dispatch => {
+    try{
+      await axiosOrders.delete(`/comments/${id}`);
     }catch(e){
       console.log(e);
     }

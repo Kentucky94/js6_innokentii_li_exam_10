@@ -8,13 +8,19 @@ import {fetchNews} from "../../store/actions";
 
 import './NewsPage.css';
 
+let myInterval = null;
+
 class NewsPage extends Component {
   componentDidMount() {
     this.props.fetchNews();
 
-    setInterval(() => {
+    myInterval = setInterval(() => {
       this.props.fetchNews();
     }, 2000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(myInterval);
   }
 
   render() {

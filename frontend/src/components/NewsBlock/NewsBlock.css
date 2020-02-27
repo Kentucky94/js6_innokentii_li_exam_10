@@ -2,6 +2,21 @@
   padding: 10px;
   border: 2px solid black;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.NewsBlock button{
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: indianred;
+}
+
+.NewsBlock button:hover{
+  text-decoration: underline;
 }
 
 .NewsBlock img{
