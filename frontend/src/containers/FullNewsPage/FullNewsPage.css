@@ -2,3 +2,33 @@
   border: 2px solid black;
   padding: 20px;
 }
+
+.CommentsBlock{
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.commentForm{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.commentForm textarea{
+  width: 30%;
+  min-height: 200px;
+  resize: none;
+}
+
+.commentForm button{
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 20px 0;
+  background: mediumseagreen;
+}
+
+.commentForm button:hover{
+  text-decoration: underline;
+}

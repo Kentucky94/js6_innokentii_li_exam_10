@@ -65,10 +65,14 @@ class FullNewsPage extends Component {
           <p><b>Posted on:</b> {moment(this.props.currentNews.news_date).format('MMMM Do YYYY, h:mm:ss a')}</p>
           <p>{this.props.currentNews.news_content}</p>
         </div>
-        <h2>Comments</h2>
-        <div>
-          {comments}
+
+        <div className='CommentsBlock'>
+          <h2>Comments</h2>
+          <div>
+            {comments}
+          </div>
         </div>
+
         <h2>Add new comment</h2>
         <form onSubmit={this.commentSubmitHandler} className='commentForm'>
           <h4>Author</h4>
